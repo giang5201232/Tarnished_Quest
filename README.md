@@ -2,8 +2,12 @@
 
 ## **1. Thông tin về game**  
 ### **🔗 Link**  
-- **GitHub Repository**: [https://github.com/yourname/TarnishedQuest](https://github.com/yourname/TarnishedQuest)  
-- **Gameplay Demo (YouTube)**: [https://youtu.be/demo](https://youtu.be/demo) *(Nếu có)*  
+- **GitHub Repository**: [https://github.com/giang5201232/Tarnished_Quest](https://github.com/giang5201232/Tarnished_Quest)
+-  **Giới thiệu game:**
+-   Game kết hợp 2 thể loại platformer (VD: Mario, contra,...), beat 'em up(One Finger Death Punch) và cơ chế "Style Meter" tốc độ cao (Đồng hồ phong cách) của UltraKill thúc đẩy lối chơi tấn công liên tục, trừng phạt người chơi nếu "chậm chân".
+-  **Nội dung:**
+-   Bạn đóng vào vai 1 kẻ bị ruồng bỏ (Tarnished) đang đói khát những những linh hồn mục ruỗng như bạn, ở trong ngục tối, bạn cần giết những con quái vật xương cản đường bạn, bạn phải liên tục tiêu diệt chúng để hấp thụ năng lượng linh hồn, nếu không bạn sẽ chết, không ai biết sẽ đến bao giờ, nhưng bạn cứ đi rồi giết rồi lại "ăn", các cuộc chiến vẫn không hề dừng lại, nó vẫn cứ tiếp tục như vậy,,,
+  
 
 ### **🎮 Game tham khảo**  
 | Game | Link | Mô tả |  
@@ -29,7 +33,7 @@
 
 ✔ **Animation & Âm thanh chi tiết**  
 - 5+ trạng thái animation (chạy, nhảy, tấn công, bị đánh, chết).  
-- Nhạc nền điện tử + hiệu ứng âm thanh **bắn/giết/nhảy** chân thực.  
+- Nhạc nền điện tử + hiệu ứng âm thanh **chém/giết/nhảy** chân thực.  
 
 ---
 
@@ -43,7 +47,8 @@
 │   ├── 📄 Skeleton.h/cpp  # AI quái vật, hành vi tấn công  
 │   ├── 📄 LevelPart.h/cpp # Quản lý map ngẫu nhiên  
 │   ├── 📄 Game.h/cpp      # Logic chính (render, update, input)  
-│   └── 📄 Menu.h/cpp      # Giao diện menu/pause  
+│   └── 📄 Menu.h/cpp      # Giao diện menu/pause
+|   ...
 ├── 📁 res/                # Tài nguyên  
 │   ├── 📁 texture/        # Hình ảnh (player, quái, map)  
 │   ├── 📁 sfx/            # Âm thanh (nhạc, hiệu ứng)  
@@ -65,20 +70,20 @@
    - Khi người chơi chết → Hiện điểm + nút **Chơi lại**.  
 
 ---
-
-## **4. Nguồn tham khảo và dữ liệu**  
+**4. Nguồn tham khảo và dữ liệu**  
 ### **🎨 Đồ họa**  
-- **Player/Enemy Sprites**: Tự vẽ bằng Aseprite/Pixel Art.  
-- **Tilemap**: Sử dụng từ [OpenGameArt.org](https://opengameart.org/).  
+- **Player/Enemy Sprites**: Tải về từ itch.io và chỉnh sửa bằng Piskel.  
+- **Tilemap**: Sử dụng từ OpenGameArt.org
 
 ### **🎵 Âm thanh**  
 | File | Nguồn |  
 |------|-------|  
 | Nhạc nền | [FreeMusicArchive](https://freemusicarchive.org/) |  
-| SFX (bắn, nhảy) | [Freesound](https://freesound.org/) |  
+| SFX (bắn, nhảy) | [Pixabay](https://pixabay.com/) |  
 
 ### **📚 Code & Hướng dẫn**  
-- **SDL Tutorials**: [LazyFoo.net](https://lazyfoo.net/tutorials/SDL/index.php)  
+- **SDL Tutorials**: [LazyFoo.net](https://lazyfoo.net/tutorials/SDL/index.php)
+- **Reference Video** [codergopher](https://www.youtube.com/watch?v=KsG6dJlLBDw&list=PL2RPjWnJduNmXHRYwdtublIPdlqocBoLS)
 - **AI Movement**: Thuật toán Dijkstra đơn giản cho quái vật.  
 - **ChatGPT**: Hỗ trợ debug logic game.  
 
