@@ -1,4 +1,5 @@
-﻿#include "Player.h"
+#include "Player.h"
+#include "Game.h"
 
 // Constructor: Khởi tạo player với vị trí và texture
 Player::Player(float p_x, float p_y, SDL_Texture* p_tex) : Entity(p_x, p_y, p_tex) {
@@ -217,6 +218,12 @@ void Player::getHit(vector<Skeleton*> &skeletonList, Mix_Chunk* p_sfx[], SDL_Rec
 		dead = true;
 		Mix_PlayChannel(-1, p_sfx[hitSFX], 0);
 	}
+	//Hết thời gian khát linh hồn
+	if (starve <= 0) {
+        dead = true;
+        Mix_PlayChannel(-1, p_sfx[hitSFX], 0);
+	}
+
 }
 
 // Hiệu ứng bị đẩy lùi khi bị đánh
@@ -241,6 +248,10 @@ void Player::handleCamera(SDL_Rect& camera, float& camVel) {
 	if (getX() + PLAYER_WIDTH / 2 - camera.x >= SCREEN_WIDTH * 1 / 2) {
 		camera.x = (getX() + PLAYER_WIDTH / 2) - SCREEN_WIDTH * 1 / 2;
 	}
+	else if (getX() + PLAYER_WIDTH / 2 < camera.x + SCREEN_WIDTH * 1 / 2) {
+        // Di chuyển camera khi nhân vật qua nửa trái (1/2 màn hình)
+        camera.x = getX() + PLAYER_WIDTH / 2 - SCREEN_WIDTH * 1 / 2;
+    }
 	// Camera theo trục Y
 	camera.y = (getY() + PLAYER_HEIGHT / 2) - SCREEN_HEIGHT / 2;
 
