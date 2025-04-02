@@ -1,4 +1,4 @@
-﻿// Player.h
+// Player.h
 #pragma once
 
 #include <iostream>
@@ -69,6 +69,8 @@ private:
     vector<Bullet*> bulletList; // Danh sách đạn
     Mix_Chunk* playerSFX[4]; // Mảng âm thanh
 
+    int starve  = 15;
+
 public:
     // Constructor
     Player(float p_x, float p_y, SDL_Texture* p_tex);
@@ -103,6 +105,8 @@ public:
         dead = false;
         flipType = SDL_FLIP_NONE;
     }
+    void setStarve(int s) { starve = s; } // Hàm setter
+    int getStarve() { return starve; }    // Hàm getter
 
     // Setter danh sách đạn
     void setBulletList(vector<Bullet*> bulletList) { this->bulletList = bulletList; }
