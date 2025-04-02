@@ -3,12 +3,16 @@
 ## **1. Thông tin về game**  
 ### **🔗 Link**  
 - **GitHub Repository**: [https://github.com/giang5201232/Tarnished_Quest](https://github.com/giang5201232/Tarnished_Quest)
+- **Video Gameplay**: [https://www.youtube.com/watch?v=P5A8Rz4ldhM]
 -  **Giới thiệu game:**
 -   Game kết hợp 2 thể loại platformer (VD: Mario, contra,...), beat 'em up(One Finger Death Punch) và cơ chế "Style Meter" tốc độ cao (Đồng hồ phong cách) của UltraKill thúc đẩy lối chơi tấn công liên tục, trừng phạt người chơi nếu "chậm chân".
 -  **Nội dung:**
 -   Bạn đóng vào vai 1 kẻ bị ruồng bỏ (Tarnished) đang đói khát những những linh hồn mục ruỗng như bạn, ở trong ngục tối, bạn cần giết những con quái vật xương cản đường bạn, bạn phải liên tục tiêu diệt chúng để hấp thụ năng lượng linh hồn, nếu không bạn sẽ chết, không ai biết sẽ đến bao giờ, nhưng bạn cứ đi rồi giết rồi lại "ăn", các cuộc chiến vẫn không hề dừng lại, nó vẫn cứ tiếp tục như vậy,,,
-  
-
+-  **Ảnh Gameplay:**
+![Tarnished](https://github.com/giang5201232/Tarnished_Quest/blob/main/Gameplay1.png?raw=true)
+![Tarnished](https://github.com/giang5201232/Tarnished_Quest/blob/main/Gameplay2.png?raw=true)
+![Tarnished](https://github.com/giang5201232/Tarnished_Quest/blob/main/Gameplay3.png?raw=true)
+![Tarnished](https://github.com/giang5201232/Tarnished_Quest/blob/main/Gameplay4.png?raw=true) 
 ### **🎮 Game tham khảo**  
 | Game | Link | Mô tả |  
 |------|------|-------|  
@@ -91,8 +95,8 @@
 
 ## **5. Thông tin khác**  
 ### **⚠️ Lưu ý khi chạy game**  
-- Cần cài đặt **SDL2, SDL2_image, SDL2_mixer, SDL2_ttf**.  
-- Game chỉ chạy trên **Windows/Linux** (chưa hỗ trợ Mac).  
+- Cần cài đặt **SDL2-2.28.5, SDL2_image-2.8.2, SDL2_mixer-2.6.3, SDL2_ttf-2.20.2**.  
+- Game chỉ chạy trên **Windows/Linux**.  
 
 ### **📅 Kế hoạch phát triển**  
 - [ ] Thêm **boss fight** cuối mỗi 10 level.  
