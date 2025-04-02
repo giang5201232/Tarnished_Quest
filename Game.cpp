@@ -1,4 +1,4 @@
-﻿#include "Game.h"
+#include "Game.h"
 
 // Khởi tạo các thư viện SDL
 bool Game::init() {
@@ -105,7 +105,7 @@ void Game::FPSCounter() {
 
     SDL_Color whiteColor = { 255,255,255,255 };
     SDL_Texture* textTex = commonFunc::createText(timeText.str().c_str(), whiteColor);
-    Entity text(64*3, 0, textTex);
+    Entity text(10, 10, textTex);
     commonFunc::renderTexture(text);
     ++countedFrames;
 }
@@ -135,6 +135,31 @@ void Game::renderScore() {
     Entity high_score(1100, 0, highscoreTex);
     commonFunc::renderTexture(current_score);
     commonFunc::renderTexture(high_score);
+}
+
+void Game::renderStarveTime() {
+    Uint32 currentTime = SDL_GetTicks();
+    Uint32 elapsedTime = (currentTime - gameStartTime) / 1000; // Thời gian đã trôi qua (giây)
+
+    int starve = 15 - elapsedTime;
+
+    if (starve < 0) {
+            starve = 0;
+    } else {
+        // Cập nhật thời gian chỉ khi starve > 0
+        playerList.at(0).setStarve(starve);
+    }
+    starveText.str("");
+    starveText << "Die In: " << starve << " S";
+    SDL_Color yellowColor = { 255,25d5,5,255 };
+
+    if (!playerList.empty()) {
+        playerList.at(0).setStarve(starve);
+    }
+
+    SDL_Texture* starveTex = commonFunc::createText(starveText.str().c_str(), yellowColor);
+    Entity starveTime(560, 30, starveTex);
+    commonFunc::renderTexture(starveTime);
 }
 
 // Tạo các map cho game
@@ -325,6 +350,11 @@ void Game::render_update_skeleton() {
                 skeletonList.at(i)->update(playerList.at(0), LevelPartList, skeletonSFX, camera);
             }
             else {
+                resetStarveTimer();
+                if (!playerList.empty()) {
+                    playerList.at(0).setStarve(15); // Reset giá trị starve
+                    gameStartTime = SDL_GetTicks(); // Reset timer
+                }
                 // Xóa skeleton nếu đã chết
                 delete skeletonList.at(i);
                 skeletonList.at(i) = NULL;
@@ -356,6 +386,7 @@ void Game::render_update_Game() {
     render_update_skeleton();
     FPSCounter();
     renderScore();
+    renderStarveTime();
 
     // Xử lý khi player chết
     if (playerList.at(0).isDead()) {
@@ -379,11 +410,12 @@ void Game::render_mainMenu() {
 
 // Reset game về trạng thái ban đầu
 void Game::resetGame() {
+    // Reset thời điểm bắt đầu game
+    gameStartTime = SDL_GetTicks(); // Đặt lại thời điểm bắt đầu
     playerList.at(0).resetPlayer();
     camera.x = 0;
     camera.y = 0;
     camVel = 1.5;
-
     // Xóa tất cả skeleton
     if(!skeletonList.empty())
         for (int i = skeletonList.size() - 1; i >= 0; i--) {
@@ -411,6 +443,9 @@ void Game::resetGame() {
     fpsTimer.start();
     countedFrames = 0;
     score = 0;
+    if (!playerList.empty()) {
+        playerList.at(0).setStarve(15);  // Also reset the starve value
+    }
 }
 
 // Xử lý input game
