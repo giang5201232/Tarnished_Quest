@@ -42,6 +42,8 @@ private:
     stringstream timeText;            // Hiển thị thời gian
     stringstream scoreText;           // Hiển thị điểm
     stringstream highscoreText;       // Hiển thị điểm cao nhất
+    stringstream starveText;
+
     int score = 0;                    // Điểm hiện tại
     int highscore = 0;                // Điểm cao nhất
     int countedFrames = 0;            // Đếm số frame
@@ -51,6 +53,8 @@ private:
     SDL_Rect camera = { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT }; // Camera
     float camVel = 1.5;               // Tốc độ camera
     int exCounter = 0;                // Counter hiệu ứng
+
+    Uint32 gameStartTime; // Thời điểm bắt đầu game
 
     // Trạng thái game
     bool gameRunning = true;          // Game đang chạy hay không
@@ -66,6 +70,12 @@ public:
     Game() {
         setSDL_Rect();  // Khởi tạo các SDL_Rect
     }
+    void resetStarveTimer() {
+        gameStartTime = SDL_GetTicks();
+        if (!playerList.empty()) {
+            playerList.at(0).setStarve(15);
+        }
+    }
 
     // Các phương thức khởi tạo
     bool init();        // Khởi tạo SDL
@@ -74,6 +84,7 @@ public:
 
     // Các phương thức hiển thị
     void renderScore(); // Hiển thị điểm số
+    void renderStarveTime();
     void render_update_LevelPart(); // Render và update map
     void render_update_bullet();    // Render và update đạn
     void render_update_player();    // Render và update player
@@ -89,7 +100,6 @@ public:
     bool createMenu();      // Tạo menu
 
     // Các phương thức xử lý âm thanh
-    void start_ExplosionSFX(); // Hiệu ứng nổ
     void playMusic();          // Phát nhạc
     void pauseMusicTime();     // Tạm dừng nhạc
 
