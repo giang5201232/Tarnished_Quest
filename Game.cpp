@@ -151,7 +151,7 @@ void Game::renderStarveTime() {
     }
     starveText.str("");
     starveText << "Die In: " << starve << " S";
-    SDL_Color yellowColor = { 255,25d5,5,255 };
+    SDL_Color yellowColor = { 255,255,5,255 };
 
     if (!playerList.empty()) {
         playerList.at(0).setStarve(starve);
